@@ -1,1 +1,248 @@
 // main SASS file
+
+@import '_mixins';
+@import '_variables';
+//@import '_queries'; ----- INCLUDED AT BOTTOM
+
+
+*{
+    padding:0;
+    margin: 0;
+    @include box-sizing(border-box);
+}
+*:after, 
+*:before{
+    @include box-sizing(inherit);
+}
+html{
+    font-size: $fs_body;
+    font-family: $ff_body;
+    line-height: 1.6;
+}
+h1, h2, h3, h4{
+    font-family: $ff_heading; /* serif for the headings */
+}
+ul{
+    list-style: none;
+}
+
+/***********************************************
+                SPECIAL
+***********************************************/
+
+.clearfix{
+    &:after{
+        display: table;
+        clear: both;
+        content: "";
+    }
+}
+
+
+/***********************************************
+                LAYOUT
+***********************************************/
+.bg-header{
+    @include background($blue_light,$gray_dark);
+    border-bottom:1rem solid $blue_medium;
+    border-top:1rem solid $bule_dark;
+    position: relative;
+    &:after,&:before{
+        content:"";
+        position:absolute;
+        bottom:-1rem;
+        width:30%;
+        height:1rem;
+        background-color: $bule_dark;
+    }
+    &:before{
+        left: 0;
+    }
+    &:after{
+        right: 0;
+    }
+}
+.bg-focal{
+    @include background($brown_light,$brown_dark);
+}
+.bg-content1{
+    @include background($white,$gray_dark);
+}
+.bg-content2{
+    @include background($blue_light,$bule_dark);
+}
+.bg-footer{
+    @include background($white,$gray_light);
+}
+.defaultWidth_center{
+    width: 400px; /* default */
+    margin: 0 auto;
+}
+header{
+    @extend .defaultWidth_center;
+    position: relative;
+    h1{
+        width: 100%;
+        padding: 0 2rem;
+    }
+    nav{
+        width: 100%;
+    }
+    ul li{
+        width: 100%;
+        float: none;
+    }
+}
+
+section{
+    &.focal{
+        @extend .defaultWidth_center;
+    }
+    &.content1,&.content2{
+        padding: 2rem 0;
+    }
+}
+
+.row{
+    clear: both;
+}
+[class*="col-"] {
+	float: left;
+}
+@include col-x;
+
+.col-2{;
+    padding-bottom: 2rem;
+    border-left:1px solid $bule_dark;
+    margin-bottom: 2rem;
+}
+
+footer{
+    padding:2rem 0;
+    .col-2:first-child{
+        border-left: 0;
+    }
+}
+
+/***********************************************
+                NAVIGATION
+***********************************************/
+
+header{
+    nav{
+        padding:2rem 0;
+        clear: both;
+        ul > li > a{
+            display:block;
+            text-align: center;
+            text-decoration: none;
+            @include background($white,$gray_dark); 
+            @include fontsize_padding($fs_regular,1.0rem 2rem);
+            letter-spacing: 0.25rem;
+            border: 1px solid $gray_light; 
+            border-bottom: none;
+            line-height: 1;
+            &:hover{
+                font-weight: 700;
+                color:$brown_dark;
+            }
+        }
+    }
+}
+
+
+/***********************************************
+                CONTENT
+***********************************************/
+header{
+    h1{
+        color: $brown_dark;
+        letter-spacing: 0.1rem;
+    }
+    i.fa-lg{
+        display: block;
+        width: 25%;
+        float: left; 
+        font-size: $fs_large;
+        line-height: 12.7936rem;
+        color: $brown_light; 
+        ~span{
+            float: right;
+            width: 75%;
+            font-size: $fs_med;
+            padding-left: 1rem;
+            text-align: right;
+        }
+    }
+}
+.focal{
+    h2{
+        @include fontsize_padding($fs_small,2rem 2rem 1rem 2rem);
+        line-height: 1.2;
+    }
+    .author{
+        @include fontsize_padding($fs_content,0.2rem 2rem 2rem);
+    }
+}
+
+.content1{
+    h3{
+        @include fontsize_padding($fs_small,0.2rem 2rem 2rem); 
+    }
+    i{
+        vertical-align: middle;
+        padding-right: 2rem;
+    }
+    p{
+        @include fontsize_padding($fs_regular,0.5rem 2rem 2rem);
+    }
+}
+.content2{
+    h3{
+        @include fontsize_padding($fs_small,1rem 2rem 0.5rem);
+    }
+    h4{
+        @include fontsize_padding($fs_small,1rem 2rem 0rem);
+    }
+    p{
+        @include fontsize_padding($fs_regular,0.5rem 2rem 1rem);
+    }
+    li{
+        @include fontsize_padding($fs_regular,0.5rem 2rem);
+    }
+}
+
+/***********************************************
+                FOOTER
+***********************************************/
+
+footer{
+    h4{
+        @include fontsize_padding($fs_regular,0.5rem 2rem);
+        color: $brown_dark;
+    }
+    p{
+        @include fontsize_padding($fs_content,0.5rem 2rem);
+        color: $gray_dark;
+    }
+    .fa-circle{
+        color: $gray_dark;
+    }
+    footer h4[lang=de]{
+       display:block;
+    }
+    footer h4[lang=en],
+    footer h4[lang=ar],
+    footer h4[lang=ru]{
+        display:none;
+    }
+}
+
+
+/***********************************************
+                MEDIA QUERIES
+***********************************************/
+
+@import '_queries';
+
+

@@ -1,0 +1,89 @@
+@mixin box-sizing($box-model) {
+    -webkit-box-sizing: $box-model;
+    -moz-box-sizing: $box-model;
+    box-sizing: $box-model;
+}
+
+@mixin background($background_color, $color) {
+    background-color: $background_color;
+    color: $color;
+}
+
+@mixin fontsize_padding($font-size, $padding) {
+    font-size: $font-size;
+    padding: $padding;
+}
+
+@mixin width_margin($width, $margin) {
+    width: $width;
+    margin: $margin;
+}
+
+@mixin col-x {
+    @for $i from 1 through 4 {
+        $width: percentage(1 / $i);
+        .col-#{$i} {
+            width: $width;
+        }
+    }
+}
+
+@mixin respond_to($media) {
+    @if $media==small_screen {
+        @media all and (min-width: $width_small + 1) and (max-width: $width_medium) {
+            @content;
+        }
+    }
+    @else if $media==medium_screen {
+        @media all and (min-width: $width_medium + 1) and (max-width: $width_large) {
+            @content;
+        }
+    }
+    @else if $media==wide_screen {
+        @media all and (min-width: $width_large + 1) {
+            @content;
+        }
+    }
+}
+
+@mixin extend_icon {
+    display: inline;
+    vertical-align: baseline;
+    float: none;
+    font-size: $fs_media;
+    line-height: 6.3968rem;
+    ~ span {
+        float: none;
+        letter-spacing: 0.25rem;
+        font-size: $fs_med;
+        text-align: left;
+    }
+}
+
+@mixin extend_nav {
+    position: static;
+    clear: both;
+    width: 100%;
+    padding: 0;
+}
+
+@mixin extend_ul_li {
+    width: 20%;
+    float: left;
+}
+
+@mixin extend_a {
+    line-height: 2rem;
+    border: none;
+    border-left: 1px solid $gray_light;
+    background-color: $white;
+}
+
+@mixin section_content {
+    h4 {
+        font-size: $fs_regular;
+    }
+    li {
+        font-size: $fs_regular;
+    }
+}

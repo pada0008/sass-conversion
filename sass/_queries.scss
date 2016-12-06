@@ -1,0 +1,268 @@
+@include respond_to(small_screen) {
+    header {
+        @include width_margin(700px, 0 auto);
+        min-height: 8rem;
+        &:before,
+        &:after {
+            width: 230px;
+        }
+        h1 {
+            width: 100%;
+            color: $brown_dark;
+            i.fa-lg {
+                @include extend_icon;
+                color: $brown_dark;
+            }
+        }
+        nav {
+            @include extend_nav;
+            ul li {
+                @include extend_ul_li;
+                a {
+                    @include extend_a;
+                    @include fontsize_padding($fs_content, 1.0rem);
+                    min-height: 6rem;
+                    &:last-child {
+                        border-right: 1px solid $gray_light;
+                    }
+                }
+            }
+        }
+    }
+    section.focal,
+    section.content1,
+    section.content2,
+    footer {
+        @include width_margin(700px, 0 auto);
+    }
+    .col-4 {
+        width: 50%;
+        float: left;
+    }
+    section {
+        &.content2 {
+            @include section_content;
+        }
+    }
+    footer {
+        .fa-circle {
+            color: $blue_medium;
+        }
+        .col-2:last-child {
+            unicode-bidi: bidi-override;
+            direction: rtl;
+        }
+        h4[lang=ar] {
+            display: block;
+        }
+        h4[lang=de],
+        h4[lang=en],
+        h4[lang=ru] {
+            display: none;
+        }
+    }
+}
+
+@include respond_to(medium_screen) {
+    header {
+        @include width_margin(900px, 0 auto);
+        &:before,
+        &:after {
+            width: 300px;
+        }
+        h1 {
+            width: 100%;
+            color: $bule_dark;
+            i.fa-lg {
+                @include extend_icon;
+                color: $bule_dark;
+            }
+        }
+        nav {
+            @include extend_nav;
+            ul li {
+                @include extend_ul_li;
+                background-color: $white;
+                a {
+                    @include extend_a;
+                    @include fontsize_padding($fs_content, 0rem 1rem);
+                    min-height: 2rem;
+                    margin: 1.0rem 0;
+                }
+                &:first-child {
+                    a {
+                        border-left: none;
+                    }
+                }
+            }
+        }
+    }
+    section.focal,
+    section.content1,
+    section.content2,
+    footer {
+        @include width_margin(900px, 0 auto);
+    }
+    section {
+        &.focal {
+            h2,
+            p.author {
+                @include width_margin(600px, 0 auto);
+            }
+        }
+        &.content1 {
+            h3 {
+                font-size: $fs_small;
+                font-weight: 100;
+                .fa-2x {
+                    font-size: $fs_small;
+                    padding-right: 1rem;
+                }
+            }
+        }
+        &.content2 {
+            @include section_content;
+            p {
+                font-size: $fs_content;
+                font-weight: 400;
+            }
+        }
+    }
+    .col-3 {
+        width: 30%;
+        margin-left: 5%;
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+    .col-4 {
+        width: 22%;
+        margin-left: 4%;
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+    footer {
+        .fa-circle {
+            color: $brown_light;
+        }
+        h4[lang=ru] {
+            display: block;
+        }
+        h4[lang=de],
+        h4[lang=ar],
+        h4[lang=en] {
+            display: none;
+        }
+    }
+}
+
+@include respond_to(wide_screen) {
+    header {
+        @include width_margin(1400px, 0 auto);
+        &:before,
+        &:after {
+            width: 450px;
+        }
+        h1 {
+            width: 100%;
+            color: $brown_dark;
+            i.fa-lg {
+                @include extend_icon;
+                color: $brown_dark;
+            }
+        }
+        nav {
+            @include extend_nav;
+            ul li {
+                @include extend_ul_li;
+                background-color: $white;
+                a {
+                    @include extend_a;
+                    @include fontsize_padding($fs_regular, 0 1.0rem);
+                    min-height: 2rem;
+                    margin: 1.0rem 0;
+                }
+                &:first-child {
+                    a {
+                        border-left: none;
+                    }
+                }
+            }
+        }
+    }
+    section.focal,
+    section.content1,
+    section.content2,
+    footer {
+        @include width_margin(1400px, 0 auto);
+    }
+    section {
+        &.focal {
+            h2 {
+                font-size: $fs_med;
+                @include width_margin(600px, 0 auto);
+            }
+            p.author {
+                @include width_margin(600px, 0 auto);
+            }
+        }
+        &.content1 {
+            h3 {
+                font-size: $fs_content_med;
+                font-weight: 100;
+            }
+            .fa-2x {
+                font-size: $fs_content_med;
+                padding-right: 1rem;
+                vertical-align: middle;
+            }
+        }
+        &.content2 {
+            h4 {
+                font-size: $fs_small;
+            }
+            li {
+                font-size: $fs_small;
+            }
+            p {
+                font-size: $fs_regular;
+                font-weight: 400;
+            }
+        }
+    }
+    .col-3 {
+        width: 30%;
+        margin-left: 5%;
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+    .col-4 {
+        width: 22%;
+        margin-left: 4%;
+        &:first-child {
+            margin-left: 0px;
+        }
+    }
+    footer {
+        p {
+            font-size: $fs_regular;
+            letter-spacing: 0.2rem;
+            &:last-child {
+                color: $gray_light;
+            }
+        }
+        .fa-circle {
+            color: $blue_medium;
+        }
+        h4[lang=en] {
+            display: block;
+        }
+        h4[lang=de],
+        h4[lang=ar],
+        h4[lang=ru] {
+            display: none;
+        }
+    }
+}
